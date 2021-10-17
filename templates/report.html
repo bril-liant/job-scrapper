@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Search</title>
+    <style>
+      @import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
+      body,
+      input,
+      textarea,
+      select {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      section {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      a {
+        text-decoration-line: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      table {
+        width: 100%;
+        font-size: 1em;
+      }
+      td#location,
+      td#company {
+        font-size: 0.8em;
+      }
+      td#from {
+        font-size: 0.5em;
+        color: #70757a;
+      }
+      td#title {
+        width: 80%;
+        color: #0c43b7;
+      }
+      div#container {
+        min-width: 800px;
+        width: 60%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #fff;
+        border-radius: 10px;
+        margin: 20px 0px 20px 0px;
+      }
+      div#job {
+        border-bottom: 1px solid #f6f5f5;
+        padding: 10px 10px 10px 10px;
+        cursor: pointer;
+        background: #fff;
+      }
+      div#job:hover {
+        background: #f4f9f9;
+      }
+      td#header {
+        text-align: left;
+        padding: 10px 10px 0px 10px;
+        vertical-align: bottom;
+        font-weight: 600;
+        font-size: 1.3em;
+      }
+      td#resultNum {
+        text-align: left;
+        padding: 0px 10px 5px 10px;
+        vertical-align: bottom;
+        font-size: 0.8em;
+      }
+      td#download,
+      td#goback {
+        vertical-align: bottom;
+        padding: 0px 10px 10px 5px;
+        text-align: right;
+      }
+      div#download {
+        border-bottom: 1px solid #f6f5f5;
+      }
+      body {
+        background: #f6f5f5;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <table>
+          <tr>
+            <td id="header">Search Results</td>
+            <td id="goback"><a href="/">← Go Back</a></td>
+          </tr>
+          <tr>
+            <td id="resultNum">
+              Found {{resultsNumber}} results for : {{word}}
+            </td>
+            <td id="download">
+              <a href="/export?word={{word}}" target="_blank">Export to CSV</a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="download"></div>
+      {% for job in jobs %}
+      <div id="job" OnClick="window.open('{{job.apply_link}}')">
+        <table>
+          <tr>
+            <td id="title">{{job.title}}</td>
+            <td id="company">{{job.company}}</td>
+          </tr>
+          <tr>
+            <td id="location">{{job.location}}</td>
+            <td id="from">from {{job.from}}</td>
+          </tr>
+        </table>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

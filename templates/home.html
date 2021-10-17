@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Job Search</title>
+    <style>
+      @import url("//fonts.googleapis.com/earlyaccess/notosanskr.css");
+      body,
+      input,
+      textarea,
+      select {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+      body {
+        background: #f6f5f5;
+      }
+      div#container {
+        max-width: 80%;
+        letter-spacing: -0.5px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        margin-top: 5%;
+      }
+      div#header {
+        margin: 10px 10px 30px 10px;
+      }
+      input {
+        font-size: 130%;
+      }
+      button {
+        font-size: 162%;
+      }
+      div#footer {
+        position: absolute;
+        height: 30px;
+        left: 0;
+        bottom: 0px;
+        background: #eee;
+        width: 100%;
+        text-align: center;
+        color: #70757a;
+        padding-top: 9px;
+        font-size: 0.8em;
+        border-top: 1px solid #dadce0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <img
+          src="https://pbs.twimg.com/media/FA3SkI8VgAEBvlP.png:orig"
+          alt="Job Scrapper"
+          width="272"
+        />
+      </div>
+      <div id="searchForm">
+        <form action="/report" mothod="get">
+          <input
+            placeholder="Search for a job"
+            required
+            name="word"
+            size="20"
+          />
+          <button>Search!</button>
+        </form>
+      </div>
+    </div>
+    <div id="footer">with nomadcoders</div>
+  </body>
+</html>
