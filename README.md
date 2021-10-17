@@ -1,2 +1,2 @@
 # job-scrapper
-Job scrapper from Stackoverflow (with nomadcoders)
+Job scrapper from Stackoverflow
